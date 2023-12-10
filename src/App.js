@@ -1,12 +1,10 @@
-import React from "react";
-import MakeDB from "./assets/MakeDB";
+import React, { useState } from "react";
+import Login from "./Login";
+import MessagingFeature from "./MessagingFeature";
 
 function App() {
-  return (
-    <div>
-      <MakeDB />
-    </div>
-  );
+  const [userData,setUserData] = useState(null)
+  return userData == null ? <Login setUserData={setUserData} /> : <MessagingFeature />;
 }
 
 export default App;
