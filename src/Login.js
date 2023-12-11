@@ -16,7 +16,6 @@ export default function Login({setIsLoggedin,setUserData}) {
       if (snapshot.exists()) {
         const data = snapshot.val();
         setUserData(data);
-          console.log(db.ref(`chats/${myId}`));
       }
     });
   }
