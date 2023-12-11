@@ -1,13 +1,13 @@
 import React from "react";
 import {Chats} from "./Chats";
 import {HeaderChat} from "./HeaderChat";
-import {FormChat} from "./FormChat";
-export function ChatMessages(){
+import MessagingFeatureForm from "../MessagingFeatureForm";
+export function ChatMessages({userData}){
     return(
         <div className='chatMessages bg-light '>
             <HeaderChat />
             <Chats />
-            <FormChat/>
+            <MessagingFeatureForm userData={userData} />
         </div>
     )
 }

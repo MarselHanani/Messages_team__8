@@ -25,7 +25,7 @@ export default function MessagingFeatureForm({ userData, chatId = 0 }) {
     setShowPicker(false)
   }
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column h-10 form">
       <form
         onSubmit={(e) => e.preventDefault()}
         className="d-flex gap-2 m-2 mt-5 "
