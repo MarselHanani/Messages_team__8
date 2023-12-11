@@ -4,7 +4,7 @@ import { db } from './config';
 import {ChatMessages, showMessages} from "./My-Component/ChatMessages";
 
 export default function Login({setIsLoggedin,setUserData}) {
-  const [myId,setMyId] = useState(null)
+  const [myId,setMyId] = useState("yahya")
   const styles = {
     display: "flex",
     justifyContent: "center",
