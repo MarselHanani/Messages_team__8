@@ -65,3 +65,18 @@ export default function MakeDB() {
   }, []);
   return <div></div>;
 }
+
+//json tree visualization
+//users:
+//  yahya:{
+//  imageUrl: string
+//  name: yahya
+//  chats:[1,2,3,4] //ids
+//chats:{
+//   users: [user1,user2]
+//   messages:[{
+//     sender: user,
+//     message: string
+//
+//   }]
+// }

@@ -6,14 +6,7 @@ import {ChatPage} from "./Pages/ChatPage";
 
 function App() {
   const [userData,setUserData] = useState(null)
-  return(
-      <>
-{/*
-        {userData == null ? <Login setUserData={setUserData} /> : <ChatMessages userData={userData} />}
-*/}
-          <ChatPage />
-      </>
-  )
+  return userData == null ? <Login setUserData={setUserData} /> : <MessagingFeature userData={userData} />;
 }
 
 export default App;
