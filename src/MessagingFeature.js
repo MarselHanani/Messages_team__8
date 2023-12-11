@@ -1,7 +1,10 @@
 import React from 'react'
+import MessagingFeatureForm from './MessagingFeatureForm'
 
-export default function MessagingFeature() {
+export default function MessagingFeature({userData}) {
   return (
-    <div>MessagingFeature</div>
+    <div>
+      <MessagingFeatureForm userData={userData} />
+    </div>
   )
 }

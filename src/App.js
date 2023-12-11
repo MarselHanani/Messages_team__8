@@ -4,7 +4,7 @@ import MessagingFeature from "./MessagingFeature";
 
 function App() {
   const [userData,setUserData] = useState(null)
-  return userData == null ? <Login setUserData={setUserData} /> : <MessagingFeature />;
+  return userData == null ? <Login setUserData={setUserData} /> : <MessagingFeature userData={userData} />;
 }
 
 export default App;
