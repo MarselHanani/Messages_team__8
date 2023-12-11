@@ -1,6 +1,7 @@
 import { onValue, ref } from 'firebase/database';
 import React, { useState } from 'react'
 import { db } from './config';
+import {ChatMessages, showMessages} from "./My-Component/ChatMessages";
 
 export default function Login({setIsLoggedin,setUserData}) {
   const [myId,setMyId] = useState(null)
@@ -15,6 +16,7 @@ export default function Login({setIsLoggedin,setUserData}) {
       if (snapshot.exists()) {
         const data = snapshot.val();
         setUserData(data);
+          console.log(db.ref(`chats/${myId}`));
       }
     });
   }
@@ -29,10 +31,10 @@ export default function Login({setIsLoggedin,setUserData}) {
       </select>
       <button
         onClick={() => {
-          getUserData();
+          getUserData()
         }}
       >
-        login
+          login
       </button>
     </div>
   );
