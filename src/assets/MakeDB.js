@@ -14,7 +14,7 @@ export default function MakeDB() {
       chats: chats,
     });
   }
-
+  
   function writeChatData(chatId, user1, user2) {
     set(ref(db, `chats/${chatId}`), {
       users: [user1, user2],
