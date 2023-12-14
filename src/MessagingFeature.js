@@ -1,12 +1,12 @@
 import React from 'react'
 import MessagingFeatureForm from './MessagingFeatureForm'
 import { Sidebar } from './My-Component/Sidebar'
-import { Navbar } from './My-Component/Navbar'
+import { MessagingNavbar } from './My-Component/MessagingNavbar'
 
 export default function MessagingFeature({userData}) {
   return (
     <div>
-    <Navbar {...userData}/>
+    <MessagingNavbar {...userData}/>
       <MessagingFeatureForm userData={userData} />
       <Sidebar {...userData}/>
       

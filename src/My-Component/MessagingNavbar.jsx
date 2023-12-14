@@ -1,12 +1,12 @@
 import React from 'react'
-import Bell_notification from '../components/Bell_notification';
+import MessagingBellNotification from '../components/MessagingBellNotification';
 
 
 
 import "firebase/database";
 
 
-export function Navbar(useimg){
+export function MessagingNavbar(useimg){
 
    
   return (
@@ -78,7 +78,7 @@ export function Navbar(useimg){
          alt=""
          loading="lazy"
        />
-<Bell_notification/>
+<MessagingBellNotification/>
 <img className="navbar-brand"
          src={useimg.imageUrl}
          width="40" height="50"
