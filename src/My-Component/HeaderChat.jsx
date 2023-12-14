@@ -1,16 +1,22 @@
-export function HeaderChat() {
+export function HeaderChat({userData}) {
     return (
         <div className='h-15 d-flex align-items-center justify-content-between border-1
         border-bottom border-secondary-light'>
-            <div className='left-side d-flex align-items-center'>
-                <img src='https://cdn-icons-png.flaticon.com/512/149/149071.png'
-                     className='w-7 mt-2 ms-2'/>
-                <h4 className='ms-2'>Marsel</h4>
+            <div className='left-side d-flex align-items-center media'>
+                <img src={`${userData.imageUrl}`}
+                     className='w-7 mt-2 ms-2 border-radius-50 '/>
+                <h4 className='ms-2 pt-2'>{userData.name}</h4>
             </div>
-            <div className='right-side me-4 position-relative'>
-                <i className="fa-solid fa-phone me-2 bg-circle text-center pt-2 "></i>
-                <i className="fa-solid fa-video me-2 bg-circle text-center pt-2 "></i>
-                <i className="fa-solid fa-ellipsis-vertical bg-circle text-center pt-2 "></i>
+            <div className='row w-media m-media'>
+                <div className='col-4 col-md-3 col-sm-1 m-media-right'>
+                    <i className="fa-solid fa-phone me-2 bg-circle text-center pt-2 m-media-right"></i>
+                </div>
+                <div className='col-4 col-md-3 col-sm-1 m-media-right'>
+                    <i className="fa-solid fa-video me-2 bg-circle text-center pt-2 m-media-right"></i>
+                </div>
+                <div className='col-4 col-md-3 col-sm-1 m-media-right-5'>
+                    <i className="fa-solid fa-ellipsis-vertical me-2 bg-circle text-center pt-2"></i>
+                </div>
             </div>
         </div>
     )

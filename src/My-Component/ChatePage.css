@@ -53,10 +53,17 @@
     border-radius: 50%;
     object-fit: cover;
 }
-.message-text{
+.message-owner{
     background-color: #1e5eff;
     border-radius: 10px 0 10px 10px ;
     color: white;
+    padding: 10px 20px;
+    max-width: max-content;
+}
+.message-other{
+    background-color: #dcdcdc;
+    border-radius: 0 10px 10px 10px ;
+    color: black;
     padding: 10px 20px;
     max-width: max-content;
 }
@@ -68,4 +75,57 @@
 .form{
     position: relative;
     bottom: 25px;
+}
+.gap-23{
+    gap: 23rem;
+}
+.border-radius-50{
+    border-radius: 50%;
+}
+@media (min-width: 350px) and (max-width: 573px) {
+    .w-media{
+    width: 100%;
+    }
+    .m-media{
+        margin-right: 15px;
+    }
+    .media{
+        width: 150%;
+        margin-right: 15px;
+    }
+    .w-7{
+        width: 17%;
+    }
+}
+@media (min-width: 573px) and (max-width: 768px) {
+    .m-media-right{
+        margin-right: 10px;
+    }
+    .m-media{
+        width: 150%;
+    }
+}
+@media (max-width: 575px){
+    .w-media{
+        width: 100%;
+    }
+    .w-7{
+        width: 17%;
+    }
+}
+@media (min-width: 575px) and (max-width: 768px) {
+   .m-media-right{
+       margin-right: 15px;
+   }
+    .w-7{
+        width: 10%;
+    }
+}
+@media (min-width: 769px){
+    .media{
+        width: 100%;
+    }
+    .m-media-right{
+        margin-right: 5px;
+    }
 }

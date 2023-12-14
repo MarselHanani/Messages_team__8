@@ -25,7 +25,7 @@ export default function MessagingFeatureForm({ userData, chatId = 0 }) {
     setShowPicker(false)
   }
   return (
-    <div className="d-flex flex-column h-10 form">
+    <div className="d-flex flex-column form">
       <form
         onSubmit={(e) => e.preventDefault()}
         className="d-flex gap-2 m-2 mt-5 "
@@ -33,19 +33,19 @@ export default function MessagingFeatureForm({ userData, chatId = 0 }) {
       >
         <input
           placeholder="Type a message"
-          class="form-control"
+          className="form-control"
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
         <div>
-          <button class="btn btn-danger" onClick={() => setShowPicker(prev => !prev)}>
-            <i class="fa-solid fa-face-smile"></i>
+          <button className="btn btn-danger" onClick={() => setShowPicker(prev => !prev)}>
+            <i className="fa-solid fa-face-smile"></i>
           </button>
         </div>
 
         <button className="btn btn-secondary">
-          <i class="fa-solid fa-paperclip"></i>
+          <i className="fa-solid fa-paperclip"></i>
         </button>
         <button
           className="btn btn-primary"
@@ -55,7 +55,7 @@ export default function MessagingFeatureForm({ userData, chatId = 0 }) {
             }
           }}
         >
-          <i class="fa-solid fa-paper-plane"></i>
+          <i className="fa-solid fa-paper-plane"></i>
         </button>
       </form>
       {showPicker && <EmojiPicker width={"100%"} height={"400px"} onEmojiClick={onEmojiClick} />}

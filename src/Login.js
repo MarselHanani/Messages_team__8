@@ -1,8 +1,6 @@
 import { onValue, ref } from 'firebase/database';
 import React, { useState } from 'react'
 import { db } from './config';
-import {ChatMessages, showMessages} from "./My-Component/ChatMessages";
-
 export default function Login({setIsLoggedin,setUserData}) {
   const [myId,setMyId] = useState(null)
   const styles = {

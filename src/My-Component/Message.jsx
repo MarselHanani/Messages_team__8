@@ -1,14 +1,35 @@
-export function Message() {
-    return (
-        <div className='d-flex gap-3 flex-row-reverse m-2 '>
-            <div className=' ms-2 mt-2-5 d-flex flex-column'>
-                <img src='https://cdn-icons-png.flaticon.com/512/149/149071.png' className='image'/>
-                <span className='fs-8 '>just now</span>
+import React from 'react'
+export function Message({message , userData, otherUser}) {
+    function ownerMessage(){
+        return (
+            <div className='d-flex gap-3 flex-row-reverse m-2 '>
 
+                <div className=' ms-2 mt-2-5 d-flex flex-column'>
+                    <img src={`${userData.imageUrl}`} className='image' alt='there is no picture'/>
+                    <span className='fs-8 '>{message.sender}</span>
+                </div>
+                <div className='ms-1 '>
+                    <p className='mt-1 message-owner mx-mx-content'>{message.message}</p>
+                </div>
             </div>
-            <div className='ms-1 mt-1 '>
-                <p className='mt-1 fs-5 message-text mx-mx-content'>hello</p>
+        )
+    }
+    function otherMessage(){
+        return (
+            <div className='d-flex gap-3 m-2'>
+
+                <div className=' ms-2 mt-1 d-flex flex-column align-items-start'>
+                    <img src={`${otherUser.imageUrl}`} className='image'/>
+                    <span className='fs-8 '>{message.sender}</span>
+                </div>
+                <div className='ms-1 '>
+                    <p className='mt-1 message-other mx-mx-content'>{message.message}</p>
+                </div>
             </div>
-        </div>
+        )
+    }
+    return(
+        <>
+            {message.sender === userData.name ? ownerMessage() : otherMessage()}</>
     )
-}
+  }
