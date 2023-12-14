@@ -7,8 +7,6 @@ import "firebase/database";
 
 
 export function MessagingNavbar(useimg){
-
-
     return (
         <nav  className="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100">
             <div className="navbar-nav nav-fill w-100">
