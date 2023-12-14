@@ -37,8 +37,8 @@
 .bg-circle {
     background-color: #c8cee0 ;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 37px;
+    height: 37px;
     color: #1e5eff;
 }
 .fs-8 {
@@ -94,7 +94,10 @@
         margin-right: 15px;
     }
     .w-7{
-        width: 17%;
+        width: 25%;
+    }
+    .container{
+        width: 100%;
     }
 }
 @media (min-width: 573px) and (max-width: 768px) {
@@ -104,13 +107,16 @@
     .m-media{
         width: 150%;
     }
+    .container{
+        width: 100%;
+    }
 }
 @media (max-width: 575px){
     .w-media{
         width: 100%;
     }
-    .w-7{
-        width: 17%;
+    .w-7 {
+        width: 25%;
     }
 }
 @media (min-width: 575px) and (max-width: 768px) {
@@ -118,7 +124,10 @@
        margin-right: 15px;
    }
     .w-7{
-        width: 10%;
+        width: 17%;
+    }
+    .container{
+        width: 200%;
     }
 }
 @media (min-width: 769px){
@@ -127,5 +136,10 @@
     }
     .m-media-right{
         margin-right: 5px;
+    }
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+    .w-7{
+        width: 17%;
     }
 }

@@ -1,11 +1,11 @@
 import React from 'react'
-import MessagingFeatureForm from './MessagingFeatureForm'
 import {ChatPage} from "./Pages/ChatPage";
+import {MessagingNavbar} from "./My-Component/MessagingNavbar";
 
 export default function MessagingFeature({userData}) {
   return (
     <div>
-      {/*<MessagingFeatureForm userData={userData} />*/}
+        <MessagingNavbar {...userData}/>
         <ChatPage userData={userData}/>
     </div>
   )

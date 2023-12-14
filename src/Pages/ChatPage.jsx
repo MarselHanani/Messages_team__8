@@ -6,7 +6,7 @@ export function ChatPage({userData}) {
     return (
         <div className='Home'>
         <div className='container d-flex'>
-            <Sidebar />
+            <Sidebar {...userData}/>
             <ChatMessages userData={userData}/>
         </div>
         </div>

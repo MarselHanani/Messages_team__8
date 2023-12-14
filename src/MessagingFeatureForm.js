@@ -15,7 +15,7 @@ export default function MessagingFeatureForm({ userData, chatId = 0 }) {
         set(ref(db, `chats/${chatId}/messages/${messagesLength}`), {
           sender: userData.name,
           message: message,
-        });
+        }).then();
         setMessage("");
     })
   }

@@ -1,7 +1,7 @@
 import { onValue, ref } from 'firebase/database';
 import React, { useState } from 'react'
 import { db } from './config';
-export default function Login({setIsLoggedin,setUserData}) {
+export default function Login({setUserData}) {
   const [myId,setMyId] = useState(null)
   const styles = {
     display: "flex",

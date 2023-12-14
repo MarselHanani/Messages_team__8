@@ -1,5 +1,8 @@
-export function Sidebar() {
+import Serch from "../Search"
+export function Sidebar(userdata) {
     return (
-        <div className='sidebar bg-light border-1 border-secondary-light border-end'><h1>Sidebar</h1></div>
+        <div className='sidebar bg-light'><h1>Sidebar</h1>
+            <Serch {...userdata} />
+        </div>
     )
 }
