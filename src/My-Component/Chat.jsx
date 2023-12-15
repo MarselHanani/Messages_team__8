@@ -2,11 +2,10 @@ import Messages from "./Messages";
 import {forwardRef, useEffect, useState} from "react";
 import {onValue, ref} from "firebase/database";
 import {db} from "../config";
-export default forwardRef(function Chat({chatId, userData},refer) {
-    
+export default forwardRef(function Chat({chat_id, userData},refer) {
     const [chats, setChats] = useState([]);
     useEffect(() => {
-        onValue(ref(db, `chats/${chatId}/messages`), (snapshot) => {
+        onValue(ref(db, `chats/${chat_id}/messages`), (snapshot) => {
             const data = snapshot.val();
             setChats(data);
         })
