@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { db } from './config';
 
 export default function Login({setUserData}) {
-  const [myId,setMyId] = useState(null)
+  const [myId,setMyId] = useState("yahya")
   const styles = {
     display: "flex",
     justifyContent: "center",
