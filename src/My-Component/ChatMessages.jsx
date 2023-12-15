@@ -1,13 +1,21 @@
-import React from "react";
-import {Chats} from "./Chats";
+import React, { useRef } from "react";
+import Chat from "./Chat";
 import {HeaderChat} from "./HeaderChat";
-import {FormChat} from "./FormChat";
-export function ChatMessages(){
-    return(
-        <div className='chatMessages bg-light '>
-            <HeaderChat />
-            <Chats />
-            <FormChat/>
-        </div>
-    )
+import MessagingFeatureForm from "../MessagingFeatureForm";
+export function ChatMessages({userData, chatId = 0}){
+    const scrollDiv = useRef();
+    
+    return (
+      <div className="chatMessages bg-light ">
+        <HeaderChat userData={userData} />
+        <Chat userData={userData} chatId={chatId} ref={scrollDiv} />
+
+        <MessagingFeatureForm
+          userData={userData}
+          chatId={chatId}
+          scrollDiv={scrollDiv}
+        />
+        
+      </div>
+    );
 }
