@@ -1,27 +1,27 @@
-import {useEffect, useRef, useState} from "react";
-import {onValue, ref, remove} from "firebase/database";
+import {useEffect, useState} from "react";
+import {child, get, onValue, ref, remove} from "firebase/database";
 import {db} from "../config";
 
-export function HeaderChat({ userData ,chats }) {
+export function HeaderChat({ userData, chatId }) {
     const [showDropdown, setShowDropdown] = useState(false);
     const [otherUser, setOtherUser] = useState('');
-    const [sender, setSender] = useState('');
-    let isOhter = useRef(true)
-    let isSender = useRef(true)
+
     useEffect(() => {
-        if(isSender.current)
-        chats.map((key) => {
-            if(userData.name !== key.sender){
-                if(isOhter.current)
-                     onValue(ref(db , `users/${key.sender}`), (snapshot) => {
-                     if (snapshot.exists()) {
-                         setOtherUser(snapshot.val())
-                         isOhter.current = false
-                     }
+        const dbRef = ref(db);
+        get(child(dbRef,`chats/${chatId}/users`)).then(snapshot => {
+            const users = snapshot.val()
+            return users[0] !== userData.name ? users[0] : users[1]
+        }).then((user) => {
+            onValue(ref(db, `users/${user}`), snapshot => {
+                if(snapshot.exists()){
+                    setOtherUser(snapshot.val())
+                }else{
+                    console.log(snapshot.val())
+                }
             })
-            }isSender.current = false
         })
-    }, [chats]);
+    }, [chatId, userData.name])
+    
     function handleDropDownClick() {
         setShowDropdown(!showDropdown);
     }
@@ -31,7 +31,7 @@ export function HeaderChat({ userData ,chats }) {
     }
 
     function handleDeleteChat() {
-        const chatRef = ref(db, `chats/${0}`);
+        const chatRef = ref(db, `chats/${chatId}/messages`);
         remove(chatRef).then(()=> alert("Chat Deleted"));
     }
 
