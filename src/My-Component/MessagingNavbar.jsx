@@ -17,7 +17,7 @@ export function MessagingNavbar(useimg){
                          width="40" height="50"
                          alt=""
                          loading="lazy"
-                         style={{marginLeft:'6rem'}}
+                         style={{marginLeft:'10rem'}}
                     />
 
                     <form className="nav-item">
@@ -61,28 +61,29 @@ export function MessagingNavbar(useimg){
 
                             </ul>
 
-                        </div></div>
+                        </div>
+                    </div>
                     <div className='nav-item'>
                         <img className="navbar-brand"
                              src="https://i.ibb.co/RHNY2Lt/Screenshot-2023-12-12-151443.png"
-                             width="40" height="50"
+                             width="30" height="40"
                              alt=""
                              loading="lazy"
-                             style={{ marginLeft: '3rem' }}
+                             style={{ marginLeft: '1rem' }}
                         />
-                        <img className="navbar-brand"
+                        <img className="navbar-brand "
                              src="https://i.ibb.co/dc3M5Cm/Screenshot-2023-12-12-151708.png"
-                             width="40" height="50"
+                             width="30" height="40"
                              alt=""
                              loading="lazy"
                         />
                         <MessagingBellNotification/>
                         <img className="navbar-brand"
                              src={useimg.imageUrl}
-                             width="40" height="50"
+                             width="30" height="40"
                              alt=""
                              loading="lazy"
-                             style={{marginRight:'5rem'}}
+                             style={{marginRight:'2rem'}}
                         />
 
                     </div>
