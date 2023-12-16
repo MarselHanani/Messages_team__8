@@ -101,7 +101,7 @@ export function HeaderChat({ userData, chatId }) {
                         <div className="-padding">
                             <div className='triangle'></div>
                         <div
-                            className="dropdown dropdown-menu-dark p-0 position-absolute start-25"
+                            className="dropdown dropdown-menu-dark p-0 position-absolute position start-25"
                             onClick={handleDropDownClose}
                         >
                             <ul>
