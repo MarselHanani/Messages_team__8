@@ -1,0 +1,31 @@
+.user-card {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.user-card:hover {
+    background-color: #f0f0f0;
+}
+
+.chat-display {
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-height: 100px;
+}
+
+.app-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-list {
+    width: 30%;
+}
+
+.chat-container {
+    width: 65%;
+}
+ 
