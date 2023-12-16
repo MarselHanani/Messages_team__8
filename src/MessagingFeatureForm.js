@@ -1,9 +1,9 @@
-import { child, get, ref, set } from "firebase/database";
+import { child, get, ref,  set } from "firebase/database";
 import React, { useState } from "react";
 import { db } from "./config";
 import EmojiPicker from "emoji-picker-react";
 import "./messagingForm.css"
-
+let time=(new Date(Date.now())).toDateString();
 export default function MessagingFeatureForm({ userData, chatId = 0 }) {
   const [message, setMessage] = useState("");
   const [showPicker,setShowPicker] = useState(false)
@@ -15,6 +15,8 @@ export default function MessagingFeatureForm({ userData, chatId = 0 }) {
         set(ref(db, `chats/${chatId}/messages/${messagesLength}`), {
           sender: userData.name,
           message: message,
+          createdAt:time
+      
         });
         setMessage("");
     })
@@ -24,6 +26,7 @@ export default function MessagingFeatureForm({ userData, chatId = 0 }) {
     setMessage(prev => prev + emojiObject.emoji)
     setShowPicker(false)
   }
+ 
   return (
     <div className="d-flex flex-column">
       <form
