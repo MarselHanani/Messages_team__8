@@ -50,21 +50,21 @@ export function HeaderChat({ userData, chatId }) {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                remove(chatRef).then(() => {});
+                remove(chatRef)
                 swalWithBootstrapButtons.fire({
                     title: "Deleted!",
-                    text: "Your file has been deleted.",
+                    text: "chat has been deleted.",
                     icon: "success"
-                }).then(() =>{});
+                })
             } else if (
                 /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel
             ) {
                 swalWithBootstrapButtons.fire({
                     title: "Cancelled",
-                    text: "Your imaginary file is safe :)",
+                    text: "Your imaginary chat is safe :)",
                     icon: "error"
-                }).then(() => {});
+                })
             }
         });
     }
