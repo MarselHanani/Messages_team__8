@@ -3,19 +3,23 @@ import Chat from "./Chat";
 import {HeaderChat} from "./HeaderChat";
 import MessagingFeatureForm from "../MessagingFeatureForm";
 
-export function ChatMessages({userData, chatId = 0}){
-    const scrollDiv = useRef();
-    return (
-      <div className="chatMessages bg-light ">
-        <HeaderChat userData={userData} chatId={chatId} />
-        <Chat userData={userData} chatId={chatId} ref={scrollDiv} />
+export function ChatMessages({ userData, chatId, otherUser }) {
+  const scrollDiv = useRef();
+  return (
+    <div className="chatMessages bg-light ">
+      <HeaderChat userData={userData} chatId={chatId} otherUser={otherUser} />
+      <Chat
+        userData={userData}
+        chatId={chatId}
+        ref={scrollDiv}
+        otherUser={otherUser}
+      />
 
-        <MessagingFeatureForm
-          userData={userData}
-          chatId={chatId}
-          scrollDiv={scrollDiv}
-        />
-        
-      </div>
-    );
+      <MessagingFeatureForm
+        userData={userData}
+        chatId={chatId}
+        scrollDiv={scrollDiv}
+      />
+    </div>
+  );
 }

@@ -1,27 +1,10 @@
-import {useEffect, useState} from "react";
-import {child, get, onValue, ref, remove} from "firebase/database";
+import {useState} from "react";
+import {ref, remove} from "firebase/database";
 import {db} from "../config";
 import Swal from "sweetalert2";
 
-export function HeaderChat({ userData, chatId }) {
+export function HeaderChat({ userData, chatId, otherUser }) {
     const [showDropdown, setShowDropdown] = useState(false);
-    const [otherUser, setOtherUser] = useState('');
-
-    useEffect(() => {
-        const dbRef = ref(db);
-        get(child(dbRef,`chats/${chatId}/users`)).then(snapshot => {
-            const users = snapshot.val()
-            return users[0] !== userData.name ? users[0] : users[1]
-        }).then((user) => {
-            onValue(ref(db, `users/${user}`), snapshot => {
-                if(snapshot.exists()){
-                    setOtherUser(snapshot.val())
-                }else{
-                    console.log(snapshot.val())
-                }
-            })
-        })
-    }, [chatId, userData.name])
     
     function handleDropDownClick() {
         setShowDropdown(!showDropdown);
@@ -77,7 +60,7 @@ export function HeaderChat({ userData, chatId }) {
                 <img
                     src={`${otherUser.imageUrl}`}
                     className="w-7 mt-2 ms-2 border-radius-50"
-                    alt="there is no image"
+                    alt=""
                 />
                 <h4 className="ms-2 pt-2">{otherUser.name}</h4>
             </div>

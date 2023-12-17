@@ -71,7 +71,7 @@ export default function MessagingFeatureForm({
         </button>
       </form>
       {showPicker && (
-          <div className='position-absolute position'>
+          <div className='position-absolute position postition-emoji'>
         <EmojiPicker
           width={"100%"}
           height={"400px"}
