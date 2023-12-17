@@ -24,7 +24,7 @@ export default function MessagingFeatureForm({
         scrollDiv.current.scrollIntoView({behavior: "smooth", block: "end"});
       })
       setMessage("");
-      
+
     });
   }
   function onEmojiClick(emojiObject, e) {
@@ -45,6 +45,7 @@ export default function MessagingFeatureForm({
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && sendMessage(e)}
         />
         <div>
           <button
@@ -70,11 +71,13 @@ export default function MessagingFeatureForm({
         </button>
       </form>
       {showPicker && (
+          <div className='position-absolute position'>
         <EmojiPicker
           width={"100%"}
           height={"400px"}
           onEmojiClick={onEmojiClick}
         />
+          </div>
       )}
     </div>
   );

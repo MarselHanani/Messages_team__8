@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {child, get, onValue, ref, remove} from "firebase/database";
 import {db} from "../config";
+import Swal from "sweetalert2";
 
 export function HeaderChat({ userData, chatId }) {
     const [showDropdown, setShowDropdown] = useState(false);
@@ -32,7 +33,40 @@ export function HeaderChat({ userData, chatId }) {
 
     function handleDeleteChat() {
         const chatRef = ref(db, `chats/${chatId}/messages`);
-        remove(chatRef).then(()=> alert("Chat Deleted"));
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                remove(chatRef)
+                swalWithBootstrapButtons.fire({
+                    title: "Deleted!",
+                    text: "chat has been deleted.",
+                    icon: "success"
+                })
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Cancelled",
+                    text: "Your imaginary chat is safe :)",
+                    icon: "error"
+                })
+            }
+        });
     }
 
     return (
@@ -67,7 +101,7 @@ export function HeaderChat({ userData, chatId }) {
                         <div className="-padding">
                             <div className='triangle'></div>
                         <div
-                            className="dropdown dropdown-menu-dark p-0 position-absolute start-25"
+                            className="dropdown dropdown-menu-dark p-0 position-absolute position start-25"
                             onClick={handleDropDownClose}
                         >
                             <ul>

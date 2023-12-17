@@ -139,6 +139,10 @@ ul li a {
     .container{
         width: 100%;
     }
+    .position {
+        bottom: 45px;
+        right: 20px;
+    }
 }
 @media (min-width: 573px) and (max-width: 768px) {
     .m-media-right{
@@ -151,21 +155,21 @@ ul li a {
         width: 100%;
     }
 }
-@media (max-width: 575px){
+@media (max-width: 576px){
     .w-media{
         width: 93%;
     }
     .w-7 {
-        width: 25%;
+        width: 22%;
     }
     .m-media-right{
         margin-right: -0.5px;
     }
 
 }
-@media (min-width: 575px) and (max-width: 768px) {
+@media (min-width: 574px) and (max-width: 768px) {
    .m-media-right{
-       margin-right: 15px;
+       margin-right: 25px;
    }
     .w-7{
         width: 17%;
