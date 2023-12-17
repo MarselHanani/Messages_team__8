@@ -3,7 +3,7 @@ import {forwardRef, useEffect, useState} from "react";
 import {onValue, ref} from "firebase/database";
 import {db} from "../config";
 
-export default forwardRef(function Chat({chatId, userData},refer) {
+export default forwardRef(function Chat({chatId, userData, otherUser},refer) {
     const [chats, setChats] = useState([]);
     useEffect(() => {
         onValue(ref(db, `chats/${chatId}/messages`), (snapshot) => {
@@ -13,7 +13,12 @@ export default forwardRef(function Chat({chatId, userData},refer) {
     },[chatId]);
     return (
       <div className="bg-light h-78 border-1 border-bottom border-secondary-light">
-        <Messages chats={chats} userData={userData} ref={refer}  />
+        <Messages
+          chats={chats}
+          userData={userData}
+          ref={refer}
+          otherUser={otherUser}
+        />
       </div>
     );
 })
