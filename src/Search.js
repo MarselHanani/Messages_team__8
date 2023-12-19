@@ -11,7 +11,7 @@ function Serch({ usersChats, setDisplayedChat }) {
   onValue(userNameRef, (snapshot) => {
     const data = snapshot.val();
     const filteredNames = Object.entries(data)
-      .filter(([name, user]) => name.startsWith(inputName))
+      .filter(([name, user]) => name.includes(inputName))
       .map(([name]) => name);
 
     filteredUserChats = usersChats.filter((userChat) =>
