@@ -13,23 +13,8 @@ export default function MessagingListOfUsers({
           {usersChats.length}
         </span>
       </h3>
-      <Search {...userdata} />
-      <div>
-        {usersChats.map((userchat) => (
-          <button
-            key={userchat.chatId}
-            className="user-chat-btn"
-            onClick={() => setDisplayedChat(userchat)}
-          >
-            <img
-              src={userchat.user.imageUrl}
-              style={{ width: "50px" }}
-              alt=""
-            />
-            <p>{userchat.user.name}</p>
-          </button>
-        ))}
-      </div>
+      <Search {...{usersChats,setDisplayedChat}} />
+  
     </div>
   );
 }

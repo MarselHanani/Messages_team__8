@@ -2,11 +2,6 @@ import { child, get, ref,  set } from "firebase/database";
 import React, { useState } from "react";
 import { db } from "./config";
 import EmojiPicker from "emoji-picker-react";
-<<<<<<< HEAD
-import "./messagingForm.css"
-let time=(new Date(Date.now())).toDateString();
-export default function MessagingFeatureForm({ userData, chatId = 0 }) {
-=======
 import "./messagingForm.css";
 
 export default function MessagingFeatureForm({
@@ -14,25 +9,12 @@ export default function MessagingFeatureForm({
   chatId = 0,
   scrollDiv,
 }) {
->>>>>>> main
   const [message, setMessage] = useState("");
   const [showPicker, setShowPicker] = useState(false);
   function sendMessage(e) {
     //maybe change the function after we progress the project
     const dbRef = ref(db);
     e.preventDefault();
-<<<<<<< HEAD
-    get(child(dbRef, `chats/${chatId}/messages`)).then(snapshot => {
-        const messagesLength = snapshot.exists() ? snapshot.val().length : 0;
-        set(ref(db, `chats/${chatId}/messages/${messagesLength}`), {
-          sender: userData.name,
-          message: message,
-          createdAt:time
-      
-        });
-        setMessage("");
-    })
-=======
     get(child(dbRef, `chats/${chatId}/messages`)).then((snapshot) => {
       const messagesLength = snapshot.exists() ? snapshot.val().length : 0;
       set(ref(db, `chats/${chatId}/messages/${messagesLength}`), {
@@ -44,7 +26,6 @@ export default function MessagingFeatureForm({
       setMessage("");
 
     });
->>>>>>> main
   }
   function onEmojiClick(emojiObject, e) {
     e.preventDefault();
