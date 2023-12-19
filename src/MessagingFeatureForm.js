@@ -1,4 +1,4 @@
-import { child, get, ref, set } from "firebase/database";
+import { child, get, ref,  set } from "firebase/database";
 import React, { useState } from "react";
 import { db } from "./config";
 import EmojiPicker from "emoji-picker-react";
@@ -32,6 +32,7 @@ export default function MessagingFeatureForm({
     setMessage((prev) => prev + emojiObject.emoji);
     setShowPicker(false);
   }
+ 
   return (
     <div className="d-flex flex-column form">
       <form
