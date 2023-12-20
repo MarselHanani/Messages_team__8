@@ -20,6 +20,7 @@ export default function MessagingFeatureForm({
       set(ref(db, `chats/${chatId}/messages/${messagesLength}`), {
         sender: userData.name,
         message: message,
+        time:new Date(Date.now()).toDateString()
       }).then(() => {
         scrollDiv.current.scrollIntoView({behavior: "smooth", block: "end"});
       })

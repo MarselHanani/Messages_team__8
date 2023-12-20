@@ -1,6 +1,7 @@
 import React from "react";
+import { DateMessage } from "./MeassageDate";
 
-export function Message({ message, userData, otherUser }) {
+export function Message({ message, userData, otherUser },time) {
   function ownerMessage() {
     return (
       <div className="d-flex gap-3 flex-row-reverse m-2 ">
@@ -15,6 +16,8 @@ export function Message({ message, userData, otherUser }) {
         <div className="ms-1 ">
           <p className="mt-1 message-owner mx-mx-content">{message.message}</p>
         </div>
+      
+      
       </div>
     );
   }
@@ -36,6 +39,10 @@ export function Message({ message, userData, otherUser }) {
     );
   }
   return (
-    <>{message.sender === userData.name ? ownerMessage() : otherMessage()}</>
+    <>
+   
+        <>{message.sender === userData.name ? ownerMessage() : otherMessage()}</>
+    </>
+
   );
 }
