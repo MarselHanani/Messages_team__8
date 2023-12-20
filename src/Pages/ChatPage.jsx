@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ChatMessages } from "../My-Component/ChatMessages";
+import {MessagingNavbar} from "../My-Component/MessagingNavbar.jsx";
 import MessagingListOfUsers from "../My-Component/MessagingListOfUsers";
 import { child, get, onValue, ref } from "firebase/database";
 import { db } from "../config";
@@ -32,12 +33,13 @@ export function ChatPage({ userData }) {
     });
   }, [userData.name, userData.chats]);
   console.log(displayedChat)
-  return (
+  return (<div>
+    <MessagingNavbar useimg={userData} chatId={displayedChat?.chatId}/>
     <div className="Home">
       <div className="container d-flex">
         <MessagingListOfUsers userData={userData} usersChats={usersChats} setDisplayedChat={setDisplayedChat} />
         {displayedChat && <ChatMessages userData={userData} chatId={displayedChat.chatId} otherUser={displayedChat.user}/> }
       </div>
-    </div>
+    </div></div>
   );
 }

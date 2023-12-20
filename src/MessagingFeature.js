@@ -5,7 +5,7 @@ export default function MessagingFeature({userData}) {
 
   return (
     <div>
-        <MessagingNavbar {...userData}/>
+        
         <ChatPage userData={userData}/>
     </div>
   )

@@ -6,7 +6,9 @@ import MessagingBellNotification from '../components/MessagingBellNotification';
 import "firebase/database";
 
 
-export function MessagingNavbar(useimg){
+export function MessagingNavbar({useimg , chatId}){
+
+
     return (
         <nav  className="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100">
             <div className="navbar-nav nav-fill w-100">
@@ -77,7 +79,7 @@ export function MessagingNavbar(useimg){
                              alt=""
                              loading="lazy"
                         />
-                        <MessagingBellNotification/>
+                        <MessagingBellNotification userlogin={useimg} chatIdchat={chatId}/>
                         <img className="navbar-brand"
                              src={useimg.imageUrl}
                              width="30" height="40"
