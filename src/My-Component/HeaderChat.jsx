@@ -62,23 +62,23 @@ export function HeaderChat({ userData, chatId, otherUser }) {
                     className="w-7 mt-2 ms-2 border-radius-50"
                     alt=""
                 />
-                <h4 className="ms-2 pt-2">{otherUser.name}</h4>
+                <h4 className="ms-2 pt-2 fs-6">{otherUser.name}</h4>
             </div>
-            <div className="row w-media m-media">
+            <div className="row w-media m-media ps-5">
                 <div className="col-4 col-md-3 col-sm-1 m-media-right">
                     <i
-                        className="fa-solid fa-phone me-2 bg-circle text-center pt-2 m-media-right fs-5"
+                        className="fa-solid fa-phone me-2 bg-circle text-center pt-2 m-media-right fs-6"
                     ></i>
                 </div>
                 <div className="col-4 col-md-3 col-sm-1 m-media-right">
                     <i
-                        className="fa-solid fa-video me-2 bg-circle text-center pt-2 m-media-right fs-5"
+                        className="fa-solid fa-video me-2 bg-circle text-center pt-2 m-media-right fs-6"
                     ></i>
                 </div>
-                <div className="col-4 col-md-3 col-sm-1 m-media-right-5">
+                <div className="col-4 col-md-3 col-sm-1">
                     <i
                         onClick={handleDropDownClick}
-                        className="fa-solid fa-ellipsis-vertical me-2 bg-circle text-center pt-2 fs-5"
+                        className="fa-solid fa-ellipsis-vertical me-2 bg-circle text-center pt-2 fs-6 m-media-right-5"
                     ></i>
                     {showDropdown && (
                         <div className="-padding">

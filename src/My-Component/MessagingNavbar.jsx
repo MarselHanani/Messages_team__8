@@ -6,7 +6,7 @@ import MessagingBellNotification from '../components/MessagingBellNotification';
 import "firebase/database";
 
 
-export function MessagingNavbar({useimg , chatId}){
+export function MessagingNavbar({useimg , chatId, handleShowList}){
 
 
     return (
@@ -71,7 +71,8 @@ export function MessagingNavbar({useimg , chatId}){
                              width="30" height="40"
                              alt=""
                              loading="lazy"
-                             style={{ marginLeft: '1rem' }}
+                             style={{ marginLeft: '1rem' , cursor:'pointer'}}
+                             onClick={handleShowList}
                         />
                         <img className="navbar-brand "
                              src="https://i.ibb.co/dc3M5Cm/Screenshot-2023-12-12-151708.png"

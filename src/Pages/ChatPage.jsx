@@ -7,11 +7,11 @@ import { db } from "../config";
 export function ChatPage({ userData }) {
   const [usersChats, setUsersChats] = useState([]);
   const [displayedChat, setDisplayedChat] = useState(usersChats[0])
-
+  const [showList, setShowList] = useState(true)
   useEffect(() => {
     const userChatsIds = userData.chats;
 
-    get(child(ref(db), `chats`)).then((snapshot) => {
+     get(child(ref(db), `chats`)).then((snapshot) => {
       const chats = snapshot.val();
       const usersChatsArray = [];
 
@@ -32,13 +32,19 @@ export function ChatPage({ userData }) {
       setDisplayedChat(usersChatsArray[0]);
     });
   }, [userData.name, userData.chats]);
-  console.log(displayedChat)
+  function handleShowList(){
+    setShowList(!showList)
+  }
   return (<div>
-    <MessagingNavbar useimg={userData} chatId={displayedChat?.chatId}/>
+    <MessagingNavbar useimg={userData} chatId={displayedChat?.chatId} handleShowList={handleShowList}/>
     <div className="Home">
       <div className="container d-flex">
-        <MessagingListOfUsers userData={userData} usersChats={usersChats} setDisplayedChat={setDisplayedChat} />
-        {displayedChat && <ChatMessages userData={userData} chatId={displayedChat.chatId} otherUser={displayedChat.user}/> }
+        <MessagingListOfUsers userData={userData} usersChats={usersChats}
+                              setDisplayedChat={setDisplayedChat}
+                              showList={showList}
+                              handleShowList={handleShowList}
+        />
+        {displayedChat && <ChatMessages userData={userData} chatId={displayedChat.chatId} otherUser={displayedChat.user} showList={showList}/> }
       </div>
     </div></div>
   );

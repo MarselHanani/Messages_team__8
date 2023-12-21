@@ -1,89 +1,59 @@
-import {  onValue, ref } from 'firebase/database';
-import React, {  useState } from 'react'
+import { onValue, ref } from 'firebase/database';
+import React, { useState } from 'react';
 import { db } from './config';
 import "firebase/database";
 
+function Serch({ usersChats, setDisplayedChat,handleShowList }) {
+    const [inputName, setInputName] = useState('');
+    const userNameRef = ref(db, `users/`);
+    let filteredUserChats = [];
 
+    onValue(userNameRef, (snapshot) => {
+        const data = snapshot.val();
+        const filteredNames = Object.entries(data)
+            .filter(([name, user]) => name.includes(inputName))
+            .map(([name]) => name);
 
+        filteredUserChats = usersChats.filter((userChat) =>
+            filteredNames.includes(userChat.user.name)
+        );
+    });
 
-function isfound(foundValue){
-    if(foundValue==='true')
-        return console.log('found');
-    else{
-        return  console.log('not found');
-    }
-}
-function Serch(theuser){
-
-
-    const[inputname,setname]=useState('');
-    const uname=ref(db,`users/`);
-    let   objectArray;
-    onValue(uname,(snapshot)=>{
-        const data=snapshot.val();
-        objectArray = Object.entries(data).map(([key, user]) => ({ ...user, name: key }));
-
-    })
-
-
-
-
-    const handelserch=()=>{
-        let hasFound='false';
-
-        for(let key in objectArray )
-        {
-            if(inputname===objectArray[key].name )
-            {
-
-
-
-                for(let key2 in theuser.chats)
-                {
-                    for(let key3 in theuser.chats){
-                        if(objectArray[key].chats[key3]===theuser.chats[key2])
-                        {
-
-                            hasFound='true';
-                            break;
+    return (
+        <>
+            <div className="input-group mb-3 w-100">
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Search for chats"
+                    aria-label="Recipient's username"
+                    aria-describedby="button-addon2"
+                    value={inputName}
+                    onChange={(e) => setInputName(e.target.value)}
+                />
+            </div>
+            <div className="search-results">
+                {filteredUserChats.map((userChat) => (
+                    <button
+                        key={userChat.chatId}
+                        className="user-chat-btn"
+                        onClick={() => {
+                            setDisplayedChat(userChat)
+                            handleShowList()
                         }
-
-                    }
-                }
-
-
-            }
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-        isfound(hasFound);
-
-    }
-
-
-    return(
-        <div className="input-group mb-3 w-100" style={{width: "300px"}}>
-            <input type="text" className="form-control" placeholder="Search for chats" aria-label="Recipient's username" aria-describedby="button-addon2"
-               value={inputname}    onChange={(e)=>{setname(e.target.value)}}/>
-            <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={handelserch}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-            </svg>
-
-        </button>
-    </div>
-    )
-
+                        }
+                    >
+                        <img
+                            src={userChat.user.imageUrl}
+                            style={{ width: "50px" }}
+                            alt=""
+                        />
+                        <p>{userChat.user.name}</p>
+                    </button>
+                ))}
+            </div>
+        </>
+    );
 }
+
 export default Serch;
