@@ -21,7 +21,7 @@ function Serch({ usersChats, setDisplayedChat,handleShowList }) {
 
     return (
         <>
-            <div className="input-group mb-3 w-100">
+            <div className="input-group mb-3 w-95 m-auto">
                 <input
                     type="text"
                     className="form-control"
@@ -32,11 +32,11 @@ function Serch({ usersChats, setDisplayedChat,handleShowList }) {
                     onChange={(e) => setInputName(e.target.value)}
                 />
             </div>
-            <div className="search-results">
+            <div className="search-result w-95 m-auto">
                 {filteredUserChats.map((userChat) => (
                     <button
                         key={userChat.chatId}
-                        className="user-chat-btn"
+                        className="user-chat-btn border-radius"
                         onClick={() => {
                             setDisplayedChat(userChat)
                             handleShowList()
