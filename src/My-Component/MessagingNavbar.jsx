@@ -10,7 +10,8 @@ export function MessagingNavbar({useimg , chatId, handleShowList}){
 
 
     return (
-        <nav  className="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100">
+        <nav  className="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100
+        border-bottom border-2 border-secondary-light">
             <div className="navbar-nav nav-fill w-100">
                 <div  className="collapse navbar-collapse">
 

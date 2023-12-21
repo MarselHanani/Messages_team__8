@@ -1,7 +1,11 @@
-.user-chat-btn{
+.user-chat-btn {
     display: flex;
     width: 100%;
     justify-content: space-around;
     align-items: center;
     padding: 1em 0 1em 0;
+    background-color: white;
+}
+.user-chat-btn:hover{
+    background-color:#e6f1fd;
 }

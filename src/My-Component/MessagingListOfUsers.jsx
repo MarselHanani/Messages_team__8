@@ -7,14 +7,16 @@ export default function MessagingListOfUsers({
   handleShowList
 }) {
   return (
-    <div className={`{ sidebar bg-light pt-5 border-end border border-2 border-secondary-light
+    <div className={`{ vh-100 vw-100 sidebar bg-light pt-5 border-end border-end border-1 overflow-hidden border-secondary-light
      ${showList ? "display-block" : "display-none"} }`}>
-      <h3>
+        <div className='border-bottom border-1 mb-3 mt--4 '>
+      <h5 className='position'>
         Active Chats{" "}
-        <span style={{ color: "black", backgroundColor: "#198754" }}>
+        <span className='bg-success-light text-success pe-2 ps-2 border-radius '>
           {usersChats.length}
         </span>
-      </h3>
+      </h5>
+        </div>
       <Search {...{usersChats,setDisplayedChat,showList,handleShowList}} />
   
     </div>
