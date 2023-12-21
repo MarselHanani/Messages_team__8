@@ -1,0 +1,23 @@
+.user-message {
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .user-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .last-message {
+    font-size: 0.85em;
+    color: #666;
+  }
+  
+  .message-sender {
+    font-weight: bold;
+  }
+  
+  .message-content {
+    margin-left: 5px;
+  }
+  
