@@ -2,6 +2,8 @@ import { onValue, ref } from 'firebase/database';
 import React, { useState } from 'react';
 import { db } from './config';
 import "firebase/database";
+import"./My-Component/ListOfUsers.css"
+
 
 function Serch({ usersChats, setDisplayedChat }) {
   const [inputName, setInputName] = useState('');

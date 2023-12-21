@@ -1,28 +1,29 @@
 import { forwardRef } from "react";
 import { Message } from "./Message";
-import { DateMessage } from "./MeassageDate";
-export default forwardRef(function Messages(
-  { chats, userData, otherUser },
-  ref
-) {
-  return (
+import { DateMessage } from "./DateMessage";
+export default forwardRef(function Messages({ chats, userData, otherUser },ref) 
+{
+ 
+    return (
     <div className="messages d-flex flex-column">
    
       {chats ? (
         chats.map((value) => {
-      
+    
+   
           return (
             <>
-            { <DateMessage time={value.time}/>}  
+             <DateMessage time={value.time} prev={chats} /> 
             <Message
               message={value}
               userData={userData}
               otherUser={otherUser}
+              {...value.time}
             />
-                
+               
             </>
           );
-       
+    
         })
       ) : (
         <h2 style={{ textAlign: "center" }}>
