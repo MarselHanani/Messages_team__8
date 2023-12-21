@@ -3,7 +3,7 @@ import "./ListOfUsers.css"
 export default function MessagingListOfUsers({
   userdata,
   usersChats,
-  setDisplayedChat,
+  setDisplayedChat
 }) {
   return (
     <div className="sidebar bg-light pt-5">
@@ -14,6 +14,7 @@ export default function MessagingListOfUsers({
         </span>
       </h3>
       <Search {...{usersChats,setDisplayedChat}} />
+      
   
     </div>
   );

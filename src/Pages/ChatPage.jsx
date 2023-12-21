@@ -35,7 +35,7 @@ export function ChatPage({ userData }) {
   return (
     <div className="Home">
       <div className="container d-flex">
-        <MessagingListOfUsers userData={userData} usersChats={usersChats} setDisplayedChat={setDisplayedChat} />
+        <MessagingListOfUsers userData={userData} usersChats={usersChats}  setDisplayedChat={setDisplayedChat} />
         {displayedChat && <ChatMessages userData={userData} chatId={displayedChat.chatId} otherUser={displayedChat.user}/> }
       </div>
     </div>
