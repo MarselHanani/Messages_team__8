@@ -29,6 +29,7 @@ export function Message({ message, userData, otherUser }) {
       </div>
       <div style={styles}>
       <TimeMessage tr={x}/>
+
       </div>
       </>
     );
