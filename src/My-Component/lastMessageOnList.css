@@ -8,16 +8,18 @@
     margin-bottom: 5px;
   }
   
-  .last-message {
+  .last-message  {
     font-size: 0.85em;
     color: #666;
+    
   }
   
-  .message-sender {
+  .message-sender{
     font-weight: bold;
   }
   
   .message-content {
     margin-left: 5px;
+
   }
   

@@ -5,6 +5,7 @@
     flex-direction: column;
     height: 100%;
     overflow-y: auto;
+
 }
 
 .user-item {
@@ -19,9 +20,11 @@
 
 .user-item:hover {
     background-color: #ececec;
+    
 }
 
-.user-img {
+.user-img 
+{
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -33,4 +36,5 @@
     font-size: 16px;
     color: #333;
     flex-grow: 1;
+
 }

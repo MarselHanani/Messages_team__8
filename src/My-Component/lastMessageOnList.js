@@ -34,5 +34,8 @@ export default function LastMessage({ chatId }) {
         </div>
       )}
     </div>
+    
   );
+
+    
 }
