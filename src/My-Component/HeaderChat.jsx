@@ -64,7 +64,7 @@ export function HeaderChat({ userData, chatId, otherUser }) {
                 />
                 <h4 className="ms-2 pt-2 fs-6">{otherUser.name}</h4>
             </div>
-            <div className="row w-media m-media ps-5">
+            <div className="row w-media m-media ps-5 yahya-icons-position">
                 <div className="col-4 col-md-3 col-sm-1 m-media-right">
                     <i
                         className="fa-solid fa-phone me-2 bg-circle text-center pt-2 m-media-right fs-6"
@@ -84,7 +84,7 @@ export function HeaderChat({ userData, chatId, otherUser }) {
                         <div className="-padding">
                             <div className='triangle'></div>
                         <div
-                            className="dropdown dropdown-menu-dark p-0 position-absolute position start-25"
+                            className="dropdown dropdown-menu-dark p-0 position-absolute start-25"
                             onClick={handleDropDownClose}
                         >
                             <ul>

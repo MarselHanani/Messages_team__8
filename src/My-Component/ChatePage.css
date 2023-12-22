@@ -141,8 +141,11 @@ ul li a {
     padding-top:-50px;
     margin-top: -50px;
 }
+.active-chat-margin-top{
+    margin-top: 0.59rem;
+}
 /* media query  code */
-@media (min-width: 300px) and (max-width: 370px) {
+@media (max-width: 370px) {
     .w-media{
     width: 100%;
     }
@@ -223,6 +226,10 @@ ul li a {
     .position{
         position: static;
     }
+    .yahya-icons-position{
+        justify-content: center;
+    }
+
 }
 @media (max-width: 576px){
     .w-media{
