@@ -36,7 +36,7 @@ function Serch({ usersChats, setDisplayedChat,handleShowList }) {
                 {filteredUserChats.map((userChat) => (
                     <button
                         key={userChat.chatId}
-                        className="user-chat-btn border-radius"
+                        className="user-chat-btn border-radius mb-2"
                         onClick={() => {
                             setDisplayedChat(userChat)
                             handleShowList()
