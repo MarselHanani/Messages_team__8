@@ -1,5 +1,7 @@
 # Messaging app for web1 
 
+this app was made for the final project of web1 course
+
 ## Requirements
 - node and npm installed
 
