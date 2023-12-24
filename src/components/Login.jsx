@@ -1,16 +1,16 @@
-import { onValue, ref } from 'firebase/database';
-import React, { useState } from 'react'
-import { db } from './config';
+import { onValue, ref } from "firebase/database";
+import React, { useState } from "react";
+import { db } from "../assets/config";
 
-export default function Login({setUserData}) {
-  const [myId,setMyId] = useState("yahya")
+export default function Login({ setUserData }) {
+  const [myId, setMyId] = useState("yahya");
   const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100vh"
-  }
-  function getUserData(){
+    height: "100vh",
+  };
+  function getUserData() {
     onValue(ref(db, `users/${myId}`), (snapshot) => {
       if (snapshot.exists()) {
         const data = snapshot.val();
@@ -29,10 +29,10 @@ export default function Login({setUserData}) {
       </select>
       <button
         onClick={() => {
-          getUserData()
+          getUserData();
         }}
       >
-          login
+        login
       </button>
     </div>
   );

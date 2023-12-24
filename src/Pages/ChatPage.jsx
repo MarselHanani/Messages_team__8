@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { ChatMessages } from "../My-Component/ChatMessages";
-import { MessagingNavbar } from "../My-Component/MessagingNavbar.jsx";
-import MessagingListOfUsers from "../My-Component/MessagingListOfUsers";
+import { ChatMessages } from "../components/chat/ChatMessages.jsx";
+import { MessagingNavbar } from "../components/navbar/MessagingNavbar.jsx";
+import MessagingListOfUsers from "../components/listOfUsers/MessagingListOfUsers.jsx";
 import { child, get, ref } from "firebase/database";
-import { db } from "../config";
+import { db } from "../assets/config.js";
 export function ChatPage({ userData }) {
   const [usersChats, setUsersChats] = useState([]);
   const [displayedChat, setDisplayedChat] = useState(usersChats[0]);
