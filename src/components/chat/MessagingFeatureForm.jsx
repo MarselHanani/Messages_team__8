@@ -12,23 +12,26 @@ export default function MessagingFeatureForm({
   const [message, setMessage] = useState("");
   const [showPicker, setShowPicker] = useState(false);
   function sendMessage(e) {
-    //maybe change the function after we progress the project
-    const dbRef = ref(db);
-    e.preventDefault();
-    get(child(dbRef, `chats/${chatId}/messages`)).then((snapshot) => {
-      const messagesLength = snapshot.exists() ? snapshot.val().length : 0;
-      set(ref(db, `chats/${chatId}/messages/${messagesLength}`), {
-        sender: userData.name,
-        message: message,
-        time:new Date(Date.now()).toString()
-      }).then(() => {
-        scrollDiv.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    if (message.trim() !== "") {
+      const dbRef = ref(db);
+      e.preventDefault();
+      get(child(dbRef, `chats/${chatId}/messages`)).then((snapshot) => {
+        const messagesLength = snapshot.exists() ? snapshot.val().length : 0;
+        set(ref(db, `chats/${chatId}/messages/${messagesLength}`), {
+          sender: userData.name,
+          message: message,
+          time: new Date(Date.now()).toString(),
+        }).then(() => {
+          scrollDiv.current.scrollIntoView({
+            behavior: "smooth",
+            block: "end",
+          });
+        });
+        setMessage("");
       });
-      setMessage("");
-    });
+    }
   }
   function onEmojiClick(emojiObject, e) {
-    e.preventDefault();
     setMessage((prev) => prev + emojiObject.emoji);
     setShowPicker(false);
   }
@@ -50,6 +53,7 @@ export default function MessagingFeatureForm({
         />
         <div>
           <button
+            type="button"
             className="btn btn-danger"
             onClick={() => setShowPicker((prev) => !prev)}
           >
@@ -63,9 +67,7 @@ export default function MessagingFeatureForm({
         <button
           className="btn btn-primary"
           onClick={(e) => {
-            if (message) {
-              sendMessage(e);
-            }
+            sendMessage(e);
           }}
         >
           <i className="fa-solid fa-paper-plane"></i>

@@ -40,20 +40,17 @@ function MessagingBellNotification({ userlogin, chatIdchat }) {
         ) {
           let pretime = new Date(value[value.length - 2].time);
           let newtimeM = new Date(value[value.length - 1].time);
-         
-          
+
           setimgbell("https://i.ibb.co/10k581W/bell2.png");
-          console.log("Hi, new element added!");
-if((Math.floor(newtimeM-pretime))>=1000)
-{
-          new Audio(audio).play();
-}
+
+          if (Math.floor(newtimeM - pretime) >= 1000) {
+            new Audio(audio).play();
+          }
           setTimeout(function () {
             setimgbell("https://i.ibb.co/T8XVXzV/bell1.png");
           }, 5000);
           // this code will run after 5 seconds
         } else {
-          console.log("Bye, no change detected.");
           if (isFirstRender) {
             setisFirstRender(false);
           }
